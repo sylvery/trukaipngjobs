@@ -64,7 +64,6 @@ keystone.set('nav', {
 
 // Start Keystone to connect to your database and initialise the web server
 // keystone.set('mongo', "mongodb://127.0.0.1:27017/drypers0");
-
 // keystone.set('mongo', "mongodb://127.0.0.1:27017/drypers0");
 
 keystone.start();

@@ -1,11 +1,12 @@
-<div class="container">
-	<h1>Job</h1>
+<div class="container page-heading">
+	<h1 class="heading">We're Hiring</h1>
+	<p class="sub-heading">trukai industries limited</p>
 </div>
 <div class="container">
 	<div class="row">
-		<div class="col-sm-8 col-md-9">
+		<div class="col-sm-12">
 			<h4 class="text-weight-normal">Showing {{ data.jobs.results.length}} jobs.</h4>
-			<div class="blog">
+			<div class="job">
 				{{# each data.jobs.results}}
 				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="job">
 					<h2><a href="{{jobUrl slug}}">{{{title}}}</a></h2>
@@ -16,15 +17,6 @@
 					<p>{{{content.brief}}}</p>
 					{{#if content.extended}}<p class="read-more"><a href="{{jobUrl slug}}">Read more...</a></p>{{/if}}
 				</div>
-				{{/each}}
-			</div>
-		</div>
-		<div class="col-sm-4 col-md-3">
-			<h2>Categories</h2>
-			<div style="margin-top: 70px;" class="list-group">
-				<a href="/jobs" class="active list-group-item">All Categories</a>
-				{{# each data.categories }}
-				<a href="{{categoryUrl key}}" class="false list-group-item">{{name}}</a>
 				{{/each}}
 			</div>
 		</div>

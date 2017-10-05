@@ -1,16 +1,32 @@
 {{!< default}}
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-sm-3">
-			<img src="/images/trukai logo.png" width="160" />
-		</div>
-		<div class="col-sm-9">
-			<div class="container-fluid">
-				<div class="row">
-					<h1>Welcome</h1>
-					<p>This is the Trukai Facebook Jobs Page</p>
-				</div>
+		<div class="col-XS-12">
+			<div class="page-heading">
+				<!-- <div class="col-sm-3">
+					<img src="/images/loop-logo.png" width="160" />
+				</div> -->
+				<h1>Awesome Jobs Board</h1>
 			</div>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-sm-offset-2 col-sm-8">
+			<h4 class="text-weight-normal">Showing {{ data.jobs.results.length}} jobs.</h4>
+			<div class="job">
+				{{# each data.jobs.results}}
+				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="panel panel-dark padded">
+					<h2><a href="{{jobUrl slug}}">{{{title}}}</a></h2>
+					<p class="lead text-muted">{{{categoryList categories prefix="Posted in "}}}
+							{{#if author.name.first}}by {{author.name.first}}{{/if}}
+					</p>
+					{{#if image}}<img src="{{{cloudinaryUrl image width=160 height=160 crop='fit' }}}" class="img pull-right">{{/if}}
+					<p>{{{content.brief}}}</p>
+					{{#if content.extended}}<p class="read-more"><a href="{{jobUrl slug}}">Read more...</a></p>{{/if}}
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+	{{>pagination}}
 </div>

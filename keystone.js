@@ -58,13 +58,13 @@ keystone.Email.defaults.templateEngine = require('handlebars');
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
-	companies: 'users',
+	users: 'users',
 	jobs: ['jobs', 'job-categories'],
 	// enquiries: 'enquiries',
 });
 
 // Start Keystone to connect to your database and initialise the web server
-// keystone.set('mongo', "mongodb://127.0.0.1:27017/trukai-jobs");
+if (keystone.get('env') != 'production') keystone.set('mongo', "mongodb://127.0.0.1:27017/trukai-jobs");
 // keystone.set('mongo', "mongodb://127.0.0.1:27017/drypers0");
 
 keystone.start();

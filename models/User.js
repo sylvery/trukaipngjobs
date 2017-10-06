@@ -14,7 +14,7 @@ User.add({
 	password: { type: Types.Password, initial: true, required: true },
 	bio: { type: Types.Text, initial: true, required: false },
 }, 'Permissions', {
-	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
+	isAdmin: { type: Boolean, label: 'Dashboard Access', index: true },
 });
 
 // Provide access to Keystone

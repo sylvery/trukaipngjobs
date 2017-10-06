@@ -16,7 +16,7 @@ Job.add({
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
-	// add due and expiry dates also here
+	expiryDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },// add due and expiry dates also here
 	image: { type: Types.CloudinaryImage },
 	content: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },

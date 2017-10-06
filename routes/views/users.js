@@ -7,11 +7,12 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 
 	// Init locals
-	locals.section = 'job';
+	locals.section = 'user';
 	locals.filters = {
-		category: req.params.category,
+		user: req.params.user,
 	};
 	locals.data = {
+		users: [],
 		jobs: [],
 		categories: [],
 	};
@@ -19,19 +20,19 @@ exports = module.exports = function (req, res) {
 	// Load all categories
 	view.on('init', function (next) {
 
-		keystone.list('JobCategory').model.find().sort('name').exec(function (err, results) {
+		keystone.list('User').model.find().sort('name').exec(function (err, results) {
 
 			if (err || !results.length) {
 				return next(err);
 			}
 
-			locals.data.categories = results;
+			locals.data.users = results;
 
 			// Load the counts for each category
-			async.each(locals.data.categories, function (category, next) {
+			async.each(locals.data.users, function (user, next) {
 
-				keystone.list('Job').model.count().where('categories').in([category.id]).exec(function (err, count) {
-					category.jobCount = count;
+				keystone.list('Job').model.count().where('categories').in([user.id]).exec(function (err, count) {
+					user.jobCount = count;
 					next(err);
 				});
 
@@ -44,9 +45,9 @@ exports = module.exports = function (req, res) {
 	// Load the current category filter
 	view.on('init', function (next) {
 
-		if (req.params.category) {
-			keystone.list('JobCategory').model.findOne({ key: locals.filters.category }).exec(function (err, result) {
-				locals.data.category = result;
+		if (req.params.user) {
+			keystone.list('Jobuser').model.findOne({ key: locals.filters.user }).exec(function (err, result) {
+				locals.data.user = result;
 				next(err);
 			});
 		} else {
@@ -66,10 +67,10 @@ exports = module.exports = function (req, res) {
 			},
 		})
 			.sort('-publishedDate')
-			.populate('author categories');
+			.populate('user');
 
-		if (locals.data.category) {
-			q.where('categories').in([locals.data.category]);
+		if (locals.data.user) {
+			q.where('users').in([locals.data.user]);
 		}
 
 		q.exec(function (err, results) {

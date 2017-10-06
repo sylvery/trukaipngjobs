@@ -9,8 +9,29 @@
 
 exports.create = {
 	User: [
-		{ 'name.first': 'Admin', 'name.last': 'User', 'email': 'sylver@trend.media', 'password': 'p@$zw0rD!', 'isAdmin': true },
+		{ 'name':'Sylver', 'email': 'sylver@trend.media', 'password': 'p@$zw0rD!', 'isAdmin': true },
+		{ 'name':'Digicel', 'email': 'digicel@jobs.com', 'password': 'password', 'isAdmin': false },
+		{ 'name':'Chemica', 'email': 'chemica@trend.media', 'password': 'password', 'isAdmin': false },
+		{ 'name':'Tablebirds', 'email': 'tablebirds@trend.media', 'password': 'password', 'isAdmin': false },
+		{ 'name':'Nari', 'email': 'nari@trend.media', 'password': 'password', 'isAdmin': false },
+		{ 'name':'Customs', 'email': 'customs@trend.media', 'password': 'password', 'isAdmin': false },
+		{ 'name':'Naqia', 'email': 'naqia@trend.media', 'password': 'password', 'isAdmin': false },
 	],
+	JobCategory: [
+			{ 'name': 'ICT' },
+			{ 'name': 'Marketing' },
+			{ 'name': 'Accounting' },
+			{ 'name': 'Human Resources' },
+			{ 'name': 'Administration' },
+			{ 'name': 'Agriculture' },
+			{ 'name': 'Construction' },
+			{ 'name': 'Aviation' },
+			{ 'name': 'Marine' },
+			{ 'name': 'Engineering' },
+			{ 'name': 'Civil' },
+			{ 'name': 'Electrical' },
+			{ 'name': 'Workshop' },
+		],
 };
 
 /*

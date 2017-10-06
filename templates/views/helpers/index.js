@@ -57,6 +57,9 @@ module.exports = function () {
 			if (this.publishedDate) {
 				context = this.publishedDate;
 			}
+			if (this.expiryDate) {
+				context = this.expiryDate;
+			}
 		}
 
 		// ensure that context is undefined, not null, as that can cause errors
@@ -101,7 +104,7 @@ module.exports = function () {
 			if (autolink) {
 				return _.map(tags, function (tag) {
 					return linkTemplate({
-						url: ('/blog/' + tag.key),
+						url: ('/jobs/' + tag.key),
 						text: _.escape(tag.name),
 					});
 				}).join(separator);

@@ -5,9 +5,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12">
-			<h4 class="text-weight-normal">Showing {{ data.jobs.results.length}} jobs.</h4>
+			<h4 class="text-weight-normal">Showing {{ data.users.results.length}} users.</h4>
 			<div class="panel">
-				{{# each data.jobs.results}}
+				{{# each data.users.results}}
 				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="job">
 					<div class="col-sm-4 col-md-3">{{#if image}}<img src="{{{cloudinaryUrl image width=260 height=260 crop='fit' }}}" class="img pull-left">{{/if}}</div>
 					<div class="col-sm-8 col-md-9">

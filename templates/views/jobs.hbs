@@ -5,16 +5,20 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12">
-			<h4 class="text-weight-normal">Showing {{ data.jobs.results.length}} jobs.</h4>
+			<div>
+				<h4 class="text-weight-normal">Showing {{ data.jobs.results.length}} jobs. <small class="text-muted">Implement jobs filter form.</small></h4>
+
+			</div>
 			<div class="panel">
+				{{ var counter =0 }}
 				{{# each data.jobs.results}}
 				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="job">
 					<div class="col-sm-4 col-md-3">{{#if image}}<img src="{{{cloudinaryUrl image width=260 height=260 crop='fit' }}}" class="img pull-left">{{/if}}</div>
 					<div class="col-sm-8 col-md-9">
 						<h2><a href="{{jobUrl slug}}">{{{title}}}</a></h2>
 						<p class="lead text-muted">
-							<span>{{#if author.name}}{{author.name}}{{/if}}</span>
-							<span class="">posted in {{{categoryList categories prefix=""}}}</span>
+							<!-- <span>{{#if author.name}}{{author.name}}{{/if}}</span> -->
+							<span class="">{{{categoryList categories suffix=" Job"}}}</span>
 							<p>Applications will close on {{ expiryDate }}.</p>
 						</p>
 					</div>

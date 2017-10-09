@@ -1,24 +1,35 @@
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-sm-12">
-			<article>
-				<header class="page-heading col-sm-9">
-					<h1>{{data.job.title}}</h1>
-					<h5 class="text-muted small">
-						{{{categoryList data.job.categories prefix="Posted in "}}}
-						{{#if author.name.first}}by {{author.name.first}}{{/if}}
-					</h5>
-				</header>
-				<div class="col-sm-3">
-					{{#if data.job.image}}<img src="{{{cloudinaryUrl data.job.image width=750 height=450 crop='fit' }}}" class="img-responsive">{{/if}}
-				</div>
-				<hr>
-				<p><a href="/jobs">&larr; back to job listings</a></p>
-				<hr>
-				<div class="job">
-					{{{data.job.content.extended}}}
-				</div>
-			</article>
-		</div>
-	</div>
+	<section class="header">
+		<article class="row">
+			<style type="text/css">
+				.job-image.featured-image {
+					width: 100%;
+					height: 250px;
+				    background-repeat-x: no-repeat;
+				    background-position: center;
+				}
+			</style>
+			<div class="job-image featured-image" style="background-image: {{#if data.job.image}}url({{{cloudinaryUrl data.job.image}}}){{/if}}"></div>
+			<header class="page-heading col-sm-12 jumbotron">
+				<h1>{{data.job.title}}</h1>
+				<h5 class="text-muted small">
+					{{{categoryList data.job.categories prefix="Posted in "}}}
+					{{#if author.name.first}}by {{author.name.first}}{{/if}}
+				</h5>
+			</header>
+			<hr>
+			<p><a href="/jobs">&larr; back to job listings</a></p>
+			<hr>
+		</article>
+	</section>
+	<section class="content container">
+		<article class="row">
+			<div class="content col-xs-12 col-sm-8 col-md-9">
+				{{{data.job.content.extended}}}
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-3">
+				<div class="page-heading">Sidebar listing all jobs in the same category here</div>
+			</div>
+		</article>
+	</section>
 </div>

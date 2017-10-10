@@ -16,6 +16,22 @@
     height: auto;
 }
 
+.jobs-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 1em 5em;
+}
+
+.jobs-wrapper > div:nth-child(odd) {
+    border-bottom: 2px solid gray;
+    border-width: 80%;
+}
+
+.jobs-wrapper > div:nth-child(even) {
+    border-width: 80%;
+    border-bottom: 2px solid lightgray;
+}
+
 .page-heading {
     text-transform: uppercase;
     text-align: center;

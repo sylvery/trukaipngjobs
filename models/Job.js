@@ -18,11 +18,11 @@ Job.add({
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	expiryDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },// add due and expiry dates also here
 	image: { type: Types.CloudinaryImage },
+	categories: { type: Types.Relationship, ref: 'JobCategory', many: true },
 	content: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 },
 	},
-	categories: { type: Types.Relationship, ref: 'JobCategory', many: true },
 });
 
 Job.schema.virtual('content.full').get(function () {

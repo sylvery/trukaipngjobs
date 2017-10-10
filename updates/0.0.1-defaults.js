@@ -28,9 +28,6 @@ exports.create = {
 			{ 'name': 'Aviation' },
 			{ 'name': 'Marine' },
 			{ 'name': 'Engineering' },
-			{ 'name': 'Civil' },
-			{ 'name': 'Electrical' },
-			{ 'name': 'Workshop' },
 		],
 };
 

@@ -11,7 +11,7 @@ gulp.task('server', function() {
 });
 
 gulp.task('default', ['server'], function() {
-	gulp.watch(['./gulpfile.js','./keystone.js','./routes/*.*','./models/*/*.*'], ['server'])
+	gulp.watch(['./gulpfile.js','./keystone.js','./routes/*.*','./models/*.js'], ['server'])
 });
 
 process.on('exit', function() {

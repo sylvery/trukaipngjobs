@@ -1,14 +1,6 @@
 <div class="container-fluid">
 	<section class="header">
 		<article class="row">
-			<style type="text/css">
-				.job-image.featured-image {
-					width: 100%;
-					height: 250px;
-				    background-repeat-x: no-repeat;
-				    background-position: center;
-				}
-			</style>
 			<div class="job-image featured-image" style="background-image: {{#if data.job.image}}url({{{cloudinaryUrl data.job.image}}}){{/if}}"></div>
 			<header class="page-heading col-sm-12 jumbotron">
 				<h1>{{data.job.title}}</h1>
@@ -29,14 +21,35 @@
 				<p>Applications will close on {{date data.job.expiryDate format='DD MMMM YYYY' }}.</p>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-3">
-				<div class="page-heading">Sidebar listing all jobs in the same category here</div>
+				<div class="page-heading">Apply Now</div>
+				<form action="/apply/jobId={{data.job.id}}" method="POST" role="form">
+					<legend>Submit Your Interest</legend>
+				
+					<div class="form-group">
+						<label for="fullname">Full Name</label>
+						<input type="text" class="form-control" id="fullname" placeholder="Input field">
+					</div>
+
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="text" class="form-control" id="email" placeholder="Input field">
+					</div>
+
+					<div class="form-group">
+						<label for="resume">Upload Resume/CV</label>
+						<input type="file" class="form-control" id="resume" placeholder="Input field">
+					</div>
+
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
 				{{# each data.jobs.results}}
-								<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="job">
+<!--
+				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="job">
 					<div class="col-sm-4 col-md-3">{{#if image}}<img src="{{{cloudinaryUrl image width=260 height=260 crop='fit' }}}" class="img pull-left">{{/if}}</div>
 					<div class="col-sm-8 col-md-9">
 						<h2><a href="{{jobUrl slug}}">{{{title}}}</a></h2>
 						<p class="lead text-muted">
-							<!-- <span>{{#if author.name}}{{author.name}}{{/if}}</span> -->
+							<span>{{#if author.name}}{{author.name}}{{/if}}</span>
 							<span class="">{{{categoryList categories suffix=" Job"}}}</span>
 							<p>Applications will close on {{date expiryDate format='DD MMMM YYYY' }}.</p>
 						</p>
@@ -46,9 +59,16 @@
 						{{#if content.extended}}<p class="read-more"><a href="{{jobUrl slug}}">Read more...</a></p>{{/if}}
 					</div>
 				</div>
-
-				{{/each}}
+ -->
+ 				{{/each}}
 			</div>
 		</article>
+	</section>
+	<section class="container">
+		<div class="panel">{{jobUrl data.job.slug}}</div>
+		<div class="fb-like" data-href="https://looppngjobs.herokuapp.com{{jobUrl data.job.slug}}"></div>
+		<div class="fb-send" data-href="https://looppngjobs.herokuapp.com{{jobUrl data.job.slug}}"></div>
+		<div class="fb-share-button" data-href="https://looppngjobs.herokuapp.com{{jobUrl data.job.slug}}" data-layout="button_count" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flooppngjobs.herokuapp.com{{jobUrlParse data.job.slug}}&amp;src=sdkpreparse">Share</a></div>
+		<div class="fb-comments" data-href="https://looppngjobs.herokuapp.com{{jobUrl data.job.slug}}" data-width="100%" data-numposts="5"></div>
 	</section>
 </div>

@@ -199,6 +199,11 @@ module.exports = function () {
 		return ('/job/' + jobSlug);
 	};
 
+	_helpers.jobUrlParse = function (jobSlug, options) {
+		if (jobSlug != null) return jobSlug.replace('/','%2F');
+		return;
+	}
+
 	// might be a ghost helper
 	// used for pagination urls on blog
 	_helpers.pageUrl = function (pageNumber, options) {

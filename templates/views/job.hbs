@@ -20,10 +20,10 @@
 				{{{data.job.content.extended}}}
 				<p>Applications will close on {{date data.job.expiryDate format='DD MMMM YYYY' }}.</p>
 			</div>
-			<div class="col-xs-12 col-sm-4 col-md-3">
-				<div class="page-heading">Apply Now</div>
+			<div class="col-xs-12 col-sm-4 col-md-3 padded" style="border-bottom: 8px solid darkgray;">
+				<div class="page-heading">
+					<h3>Apply Now</h3></div>
 				<form action="/apply/jobId={{data.job.id}}" method="POST" role="form">
-					<legend>Submit Your Interest</legend>
 				
 					<div class="form-group">
 						<label for="fullname">Full Name</label>

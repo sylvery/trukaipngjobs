@@ -35,8 +35,7 @@ var routes = {
 exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.jobs);
-	app.post('/', routes.views.index);
-	app.post('/users', routes.views.users);
+	app.post('/', routes.views.jobs);
 	app.get('/jobs/:category?', routes.views.jobs);
 	app.get('/job/:job', routes.views.job);
 	app.get('/users', routes.views.users);

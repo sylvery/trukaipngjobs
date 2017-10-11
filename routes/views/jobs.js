@@ -10,10 +10,12 @@ exports = module.exports = function (req, res) {
 	locals.section = 'job';
 	locals.filters = {
 		category: req.params.category,
+		// company: req.params.company,
 	};
 	locals.data = {
 		jobs: [],
 		categories: [],
+		// company: [],
 	};
 
 	// Load all categories

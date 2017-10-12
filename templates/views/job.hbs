@@ -15,7 +15,9 @@
 				</div>
 			</header>
 			<hr>
-			<p class="padded"><a href="/jobs">&larr; back to job listings</a></p>
+			<div class="container">
+				<p class="padded"><a href="/">&larr; back to job listings</a></p>
+			</div>
 			<hr>
 		</article>
 	</section>
@@ -68,8 +70,9 @@
  				{{/each}}
 			</div>
 		</article>
+		{{>browseByCategory }}
 	</section>
-	<section class="container">
+	<section class="container padded">
 		<!-- <div class="panel">{{jobUrl data.job.slug}}</div> -->
 		<div class="fb-like" data-href="https://looppngjobs.herokuapp.com{{jobUrl data.job.slug}}"></div>
 		<div class="fb-send" data-href="https://looppngjobs.herokuapp.com{{jobUrl data.job.slug}}"></div>

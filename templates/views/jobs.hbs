@@ -20,7 +20,7 @@
 					<h3><a href="{{jobUrl slug}}">{{{title}}}</a></h3>
 					<p class="text-muted">
 						<!-- <span>{{#if author.name}}{{author.name}}{{/if}}</span> -->
-						<span class="">{{{categoryList categories suffix=" Job"}}}</span>
+						<span class="">{{{categoryList categories prefix="Posted in "}}}</span>
 						<p>Applications will close on {{date expiryDate format='DD MMMM YYYY' }}</p>
 					</p>
 				</div>
@@ -33,4 +33,5 @@
 		</div>
 	</div>
 	{{>pagination}}
+	{{>browseByCategory}}
 </div>

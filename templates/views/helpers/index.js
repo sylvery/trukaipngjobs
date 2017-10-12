@@ -118,6 +118,17 @@ module.exports = function () {
 		return new hbs.SafeString(output);
 	};
 
+	_helpers.parseCategory = function (category, options) {
+		var autolink = _.isString(options.hash.autolink) && options.hash.autolink === 'false' ? false : true;
+		var separator = _.isString(options.hash.separator) ? options.hash.separator : ', ';
+		var output = '';
+		category = category.replace(' ','-');
+		return linkTemplate({
+			url:'/jobs/'+category,
+			text: category,
+		});
+	}
+
 	/**
 	 * KeystoneJS specific helpers
 	 * ===========================

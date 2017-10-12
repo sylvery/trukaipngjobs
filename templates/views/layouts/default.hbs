@@ -64,8 +64,15 @@
 		  }(document, 'script', 'facebook-jssdk'));
 		</script>
 		<div id="header" class="hidden-xs hidden-sm">
-			<div class="container">
-				<div role="navigation" class="navbar navbar-default navbar-fixed-top">
+			<div class="container-float">
+				{{#if user}}
+				<a href="/keystone" class="btn btn-clear btn-default"><i class="glyphicon glyphicon-list"></i></a>
+				<a href="/keystone/signout" class="btn btn-clear btn-default"><i class="glyphicon glyphicon-user"></i></a>
+				{{else}}
+				<a href="/keystone/signin" class="btn btn-clear btn-default"><i class="glyphicon glyphicon-user"></i></a>
+				{{/if}}
+				<!-- <a href="/"><span id="fb-welcome"></span></a> -->
+<!-- 			<div role="navigation" class="navbar navbar-default navbar-fixed-top">
 					<div class="container-fluid">
 						<div class="navbar-header">
 							<button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
@@ -93,7 +100,7 @@
 							</ul>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<div id="body">
@@ -130,8 +137,8 @@
 		</div>
 		<div class="container-fluid" id="footer">
 			<div>
-				<p class="pull-left">Contact <a href="mailto:sylver@trend.media">Trend Media Pacific</a> for your customized jobs board.</p>
-				<p class="pull-right">Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
+				<p class="text-center">Contact <a href="mailto:sylver@trend.media">Trend Media Pacific</a> for your customized jobs board.</p>
+				<!-- <p class="pull-right">Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p> -->
 			</div>
 		</div>
 		{{!--

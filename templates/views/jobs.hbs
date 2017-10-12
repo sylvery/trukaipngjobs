@@ -1,11 +1,18 @@
 <div class="container-fluid page-heading">
-	<h1 class="heading">Loop PNG Jobs</h1>
-	<p class="sub-heading"><em>The country's number one board for job seekers!</em></p>
+	<span style="display: inline;">
+		<img src="http://res.cloudinary.com/hthzukdgc/image/upload/v1507773274/chhlefqrtz2hizyeavoy.jpg" alt="Loop PNG Jobs | #1 Jobs Board" width="90px">
+<!-- 		<form action="" method="POST" class="form-inline" role="form" style="display: inherit;">
+			<div class="form-group">
+				<label class="sr-only" for="search-jobs">label</label>
+				<input type="text" class="form-control" id="search-jobs" placeholder="Search Jobs by Category">
+			</div>
+		</form> -->
+	</span>
 </div>
 <div class="container">
 	<div class="row">
-		<h4 class="text-weight-normal col-xs-12 col-sm-12 col-md-12 col-lg-12">Showing {{ data.jobs.results.length}} jobs.</h4>
-		<div class="jobs-wrapper col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<!-- <h4 class="text-weight-normal col-xs-12 col-sm-12 col-md-12 col-lg-12">Showing {{ data.jobs.results.length}} jobs.</h4> -->
+		<div class="jobs-wrapper padded col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			{{# each data.jobs.results}}
 			<div data-ks-editable="{{#if ./user}}{{adminEditableUrl ./../user _id}}{{/if}}" class="row">
 				<div class="col-sm-4 col-md-3 col-lg-6">{{#if image}}<img src="{{{cloudinaryUrl image width=260 height=260 crop='fit' }}}" class="img-responsive pull-left">{{/if}}</div>

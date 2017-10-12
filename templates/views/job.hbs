@@ -1,16 +1,21 @@
 <div class="container-fluid">
 	<section class="header">
 		<article class="row">
-			<div class="job-image featured-image" style="background-image: {{#if data.job.image}}url({{{cloudinaryUrl data.job.image}}}){{/if}}"></div>
+			<!-- <div class="job-image featured-image" style="background-image: {{#if data.job.image}}url({{{cloudinaryUrl data.job.image}}}){{/if}}"></div> -->
 			<header class="page-heading col-sm-12 jumbotron">
-				<h1>{{data.job.title}}</h1>
-				<h5 class="text-muted small">
-					{{{categoryList data.job.categories prefix="Posted in "}}}
-					{{#if author.name}}by {{author.name}}{{/if}}
-				</h5>
+				<div class="col-sm-6 col-md-3 flex-center">
+					<img src="{{#if data.job.image}}{{{cloudinaryUrl data.job.image}}}{{/if}}" alt="company logo" class="img-responsive" />
+				</div>
+				<div class="col-sm-6 col-md-9 text-left">
+					<h2>{{data.job.title}}</h2>
+					<h5 class="text-muted small">
+						{{{categoryList data.job.categories prefix="Posted in "}}}
+						{{#if author.name}}by {{author.name}}{{/if}}
+					</h5>
+				</div>
 			</header>
 			<hr>
-			<p><a href="/jobs">&larr; back to job listings</a></p>
+			<p class="padded"><a href="/jobs">&larr; back to job listings</a></p>
 			<hr>
 		</article>
 	</section>
@@ -20,7 +25,7 @@
 				{{{data.job.content.extended}}}
 				<p>Applications will close on {{date data.job.expiryDate format='DD MMMM YYYY' }}.</p>
 			</div>
-			<div class="col-xs-12 col-sm-4 col-md-3 padded" style="border-bottom: 8px solid darkgray;">
+			<div class="col-xs-12 col-sm-4 col-md-3 padded" id="sb-apply-now">
 				<div class="page-heading">
 					<h3>Apply Now</h3></div>
 				<form action="/apply/jobId={{data.job.id}}" method="POST" role="form">
@@ -65,10 +70,10 @@
 		</article>
 	</section>
 	<section class="container">
-		<div class="panel">{{jobUrl data.job.slug}}</div>
+		<!-- <div class="panel">{{jobUrl data.job.slug}}</div> -->
 		<div class="fb-like" data-href="https://looppngjobs.herokuapp.com{{jobUrl data.job.slug}}"></div>
 		<div class="fb-send" data-href="https://looppngjobs.herokuapp.com{{jobUrl data.job.slug}}"></div>
 		<div class="fb-share-button" data-href="https://looppngjobs.herokuapp.com{{jobUrl data.job.slug}}" data-layout="button_count" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flooppngjobs.herokuapp.com{{jobUrlParse data.job.slug}}&amp;src=sdkpreparse">Share</a></div>
-		<div class="fb-comments" data-href="https://looppngjobs.herokuapp.com{{jobUrl data.job.slug}}" data-width="100%" data-numposts="5"></div>
+		<!-- <div class="fb-comments" data-href="https://looppngjobs.herokuapp.com{{jobUrl data.job.slug}}" data-width="100%" data-numposts="5"></div> -->
 	</section>
 </div>

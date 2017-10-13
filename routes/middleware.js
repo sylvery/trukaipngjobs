@@ -55,3 +55,9 @@ exports.requireUser = function (req, res, next) {
 		next();
 	}
 };
+
+// check incoming request
+exports.checkRequest = function (req, res, next) {
+	console.log(req);
+	next();
+}

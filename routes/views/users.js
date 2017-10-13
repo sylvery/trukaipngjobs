@@ -46,7 +46,7 @@ exports = module.exports = function (req, res) {
 	view.on('init', function (next) {
 
 		if (req.params.user) {
-			keystone.list('Jobuser').model.findOne({ key: locals.filters.user }).exec(function (err, result) {
+			keystone.list('User').model.findOne({ key: locals.filters.user }).exec(function (err, result) {
 				locals.data.user = result;
 				next(err);
 			});
@@ -58,7 +58,7 @@ exports = module.exports = function (req, res) {
 	// Load the jobs
 	view.on('init', function (next) {
 
-		var q = keystone.list('Job').paginate({
+		var q = keystone.list('User').paginate({
 			page: req.query.page || 1,
 			perPage: 10,
 			maxPages: 10,
@@ -74,11 +74,11 @@ exports = module.exports = function (req, res) {
 		}
 
 		q.exec(function (err, results) {
-			locals.data.jobs = results;
+			locals.data.users = results;
 			next(err);
 		});
 	});
 
 	// Render the view
-	view.render('jobs');
+	view.render('users');
 };
